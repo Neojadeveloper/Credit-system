@@ -30,6 +30,9 @@ public class CreditService extends AbstractService<
     public CreditDTO get(Integer id) {
         return mapper.toDto(repository.findById(id).get());
     }
+    public Credit getA(Integer id) {
+        return repository.findById(id).get();
+    }
 
     @Override
     public Credit create(CreditCreateDTO createDTO) {

@@ -44,7 +44,7 @@ public class CreditController {
 
     @GetMapping(value = "update/{id}/")
     private String updatePage(Model model, @PathVariable Integer id) {
-        model.addAttribute("credit", service.get(id));
+        model.addAttribute("credit", service.getA(id));
         return "credit/update";
     }
 
