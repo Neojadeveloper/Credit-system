@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:include="fragment.html :: head('Cerdit List Page')">
+</head>
+<body>
+<section th:include="fragment.html :: navbar"></section>
+<section th:include="popups.html :: create_credit_modal"></section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto">
+                <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#createCreditModal">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+                <table class="table table-bordered table-striped" style="width: auto">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Amount</th>
+                        <th>Duration</th>
+                        <th>Percentage</th>
+                        <th>Details</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="credit, iter : ${credits}">
+                        <td th:text="${credit.firstname}"></td>
+                        <td th:text="${credit.lastname}"></td>
+                        <td th:text="${credit.amount}" style="text-align: right;"></td>
+                        <td th:text="${credit.duration}"></td>
+                        <td th:text="${credit.percentage}"></td>
+                        <td>
+                            <a th:href="@{/credit/detail/{id}/(id=${credit.id}) }" class="btn btn-primary">Details</a>
+                            <a th:href="@{/credit/delete/{id}/(id=${credit.id}) }" class="btn btn-danger">Delete</a>
+                            <a th:href="@{/credit/update/{id}/(id=${credit.id}) }" class="btn btn-secondary">Update</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section th:include="fragment.html :: js_sources"></section>
+</body>
+</html>

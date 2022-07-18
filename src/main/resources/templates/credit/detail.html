@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment.html :: head('Credit Detail Page')">
+</head>
+<body>
+<section th:include="fragment.html :: navbar"></section>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-8">
+            <table class="table table-bordered mt-5" style="width: 800px">
+                <thead>
+                <h1 class="text-primary text-center">Credit information</h1>
+                </thead>
+                <tbody>
+                <tr>
+                    <th><b>Firstname</b></th>
+                    <td th:text="${credit.firstname}"></td>
+                </tr>
+                <tr>
+                    <th><b>Lastname</b></th>
+                    <td th:text="${credit.lastname}"></td>
+                </tr>
+                <tr>
+                    <th><b>Amount</b></th>
+                    <td th:text="${credit.amount}" style="text-align: right;"></td>
+                </tr>
+                <tr>
+                    <th><b>Duration</b></th>
+                    <td th:text="${credit.duration}"></td>
+                </tr>
+                <tr>
+                    <th><b>Percentage</b></th>
+                    <td th:text="${credit.percentage}"></td>
+                </tr>
+                <tr>
+                    <th><b>Chart day</b></th>
+                    <td th:text="${credit.chartDay}"></td>
+                </tr>
+                <tr>
+                    <th><b>Debt for one day</b></th>
+                    <td th:text="${credit.debt}" style="text-align: right"></td>
+                </tr>
+
+                <tr>
+                    <th><b>Full Information</b></th>
+                    <td>
+                        <a th:href="@{/account/list/{code}(code=${credit.id})}" class="btn btn-primary">Open</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

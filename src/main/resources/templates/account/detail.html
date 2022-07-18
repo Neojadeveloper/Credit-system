@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment.html :: head('Account Detail Page')">
+</head>
+<body>
+<section th:include="fragment.html :: navbar"></section>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-8">
+            <table class="table table-bordered mt-4" style="width: auto">
+                <thead>
+                <h1 class="text-primary text-center">Account information</h1>
+                </thead>
+                <tbody>
+                <tr>
+                    <th><b>Main Loan Account</b></th>
+                    <td th:text="${account.mainLoanAccount}" style="text-align: right"></td>
+                </tr>
+                <tr>
+                    <th><b>Overdue Account</b></th>
+                    <td th:text="${account.overdueAccount}" style="text-align: right"></td>
+                </tr>
+                <tr>
+                    <th><b>Accrual Account</b></th>
+                    <td th:text="${account.accrualAccount}" style="text-align: right"></td>
+                </tr>
+                <tr>
+                    <th><b>Credited But Not Paid On Time</b></th>
+                    <td th:text="${account.creditedButNotPaidOnTime}" style="text-align: right"></td>
+                </tr>
+                <tr>
+                    <th><b>Income Account For Accrued</b></th>
+                    <td th:text="${account.incomeAccountForAccrued}" style="text-align: right"></td>
+                </tr>
+                <tr>
+                    <th><b>Off-Balance Account Client Is Obligation To The Bank</b></th>
+                    <td th:text="${account.OffBalanceAccountClientIsObligationToTheBank}"
+                        style="text-align: right"></td>
+                </tr>
+                <tr>
+                    <th><b>Off-Balance Sheet Counter Account Client Is Obligation To The Bank</b></th>
+                    <td th:text="${account.OffBalanceSheetCounterAccountClientIsObligationToTheBank}"
+                        style="text-align: right"></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <a th:href="@{/account/list/{id}/(id=${account.code}) }" class="btn btn-primary">Back</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

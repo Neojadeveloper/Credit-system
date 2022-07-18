@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:include="fragment.html :: head('Account List Page')">
+</head>
+<body>
+<section th:include="fragment.html :: navbar"></section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto">
+                <table class="table table-bordered table-striped" style="width: 800px">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Days</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="account, iter : ${accounts}">
+                        <td>
+                            <a th:href="@{/account/detail/{id}/(id=${account.id}) }" th:text="${account.date}"></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="col-8">
+                    <a th:href="@{/}" class="btn btn-primary">Back</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section th:include="fragment.html :: js_sources"></section>
+</body>
+</html>
